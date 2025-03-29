@@ -1,0 +1,41 @@
+@media screen and (min-width: 401px) and (max-width: 600px)  {
+    #wheelInstructions {
+        position: absolute;
+        top: 78px;
+        left: 418px;
+        opacity: 1;
+    }
+
+    
+
+   
+
+    .bpaylogo {
+        position: absolute !important;
+        top: 114% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    .winner-info, .contact-form {
+        width: 90%;  /* মোবাইলের জন্য ডিভের প্রস্থ 90% */
+        margin: 20px auto;  /}
+
+        .winner-info, .contact-form {
+            text-align: center;
+            background: #fff;
+            padding: 26px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 100%;
+            position: absolute;  /* এটাকে সেন্টারে রাখার জন্য */
+            top: 50%;             /* স্ক্রীনের সেন্টারে */
+            left: 38%;            /* স্ক্রীনের সেন্টারে */
+            transform: translate(-50%, -50%); /* পুরোপুরি সেন্টার করার জন্য */
+        }
+        
+}
+

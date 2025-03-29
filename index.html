@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spinner Wheel</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="rensponsive.css">
+    
+</head>
+<body>
+  <div id="revealContainer">
+    <div id="spinnerGame">
+        <div id="wheelBG">
+            <div id="shadow"></div>
+            <img src="wheel.png" alt="Prize Wheel" id="wheel" onerror="console.error('Wheel image failed to load');">
+            <img src="arrow.png" alt="Click Arrow" id="arrow" onerror="console.error('Arrow image failed to load');">
+            <img src="wheelInstructions.png" alt="Wheel Instructions" id="wheelInstructions" onerror="console.error('Instructions image failed to load');">
+        </div>
+    </div>
+    <div class="bpaylogo">
+        <h3 class="sponsor">SPONSOR BY</h3>
+              <img src="betpaylogo.svg" alt="" srcset="">
+    </div>
+    <div id="revealContent">
+        <button id="saveImage">Save Image</button>
+    </div>
+</div>
+  
+    <script type="module" src="spin.js"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0"></script>
+    
+
+</body>
+</html>

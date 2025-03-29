@@ -1,0 +1,297 @@
+body {
+  background: #246344;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.overlay {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  pointer-events: none; /* ক্লিকের জন্য নিষ্ক্রিয় করে */
+}
+
+.bpaylogo {
+  position: absolute;      /* ইমেজের পজিশন এবসলিউট */
+  top: 114%;                 /* ফটারের সেন্টারের কাছাকাছি থাকবে */
+  left: 50%;                /* সেন্টারের কাছাকাছি */
+  transform: translate(-50%, -50%);  /* পুরোপুরি সেন্টারে আনা */
+  width: 100%;             /* ইমেজের প্রস্থ (আপনি প্রয়োজন অনুযায়ী পরিবর্তন করতে পারেন) */
+  height: auto;      
+}
+
+.bpaylogo .sponsor{
+  color: white;
+  text-align: center;
+  margin-top: 40px;
+}
+#revealContainer {
+  width: 768px;
+  height: 768px;
+  margin: 0 auto;
+  position: relative;
+  background-color: #218218;
+
+}
+#spinnerGame {
+  margin: 0 auto;
+  width: 800px;
+  z-index: 1;
+}
+#spinnerGame #wheelBG {
+  width: 768px;
+  height: 768px;
+  overflow: hidden;
+  background: url(https://drive.google.com/uc?export=view&id=1XfMFWNynWTKDzFeQCjDz5QPTtrAgQGAq) bottom center no-repeat;
+  position: relative;
+}
+#spinnerGame #wheel {
+  margin: -137px -691px;
+}
+#spinnerGame #arrow {
+  position: absolute;
+  top: 321px;
+  left: 325px;
+  cursor: pointer;
+}
+
+
+#wheelInstructions {
+  position: absolute;
+  top: 78px;
+  left: 476px;
+  opacity: 1;
+}
+#spinnerGame #shadow {
+  position: absolute;
+  width: 768px;
+  height: 768px;
+  -moz-box-shadow: inset 0 0 50px #000000;
+  -webkit-box-shadow: inset 0 0 50px #000000;
+  box-shadow: inset 0 0 50px #000000;
+}
+#revealContent {
+  width: 768px;
+  height: 768px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: -1;
+}
+.winner-info, .contact-form {
+  text-align: center;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  margin: 50px auto;
+}
+.winner-info h2, .contact-form h2 {
+  color: #27ae60;
+}
+.winner-info .code {
+  font-size: 20px;
+  font-weight: bold;
+  color: #e74c3c;
+}
+.winner-info p {
+  text-align: left;
+}
+.contact-form .input-group {
+  margin: 10px 0;
+}
+.contact-form label {
+  display: block;
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 5px;
+}
+.contact-form input {
+  width: 80%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#submitContact{
+   
+  margin: 10px auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+background: green;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.contact-form .input-group label {
+    font-size: 18px; /* লেবেলের ফন্ট সাইজ বড় করার জন্য */
+    font-weight: bold; /* লেবেলকে মোটা করার জন্য */
+    font-family: "Arial", sans-serif; /* স্টাইলিশ ফন্টের জন্য */
+    color: #333; /* লেবেলের টেক্সট রঙ */
+    margin-bottom: 8px; /* ইনপুট ফিল্ডের আগে একটু স্পেস */
+  
+}
+#imo {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: "Arial", sans-serif;
+    padding: 15px;
+    border: 2px solid #007bff; /* বর্ডার স্টাইল */
+    border-radius: 10px; /* গোলাকার বর্ডার */
+    outline: none; /* ফোকাস হলে ব্লু আউটলাইন ঠিক রাখা */
+    transition: all 0.3s ease; /* টানটান অ্যানিমেশন ট্রানজিশন */
+}
+
+#imo:focus {
+    border-color: #28a745; /* ফোকাস হলে সবুজ বর্ডার */
+    box-shadow: 0 0 10px rgba(40, 167, 69, 0.5); /* হালকা সবুজ ছায়া */
+}
+
+#imo::placeholder {
+    font-size: 16px;
+    color: #888; /* প্লেসহোল্ডারের রঙ */
+    font-style: italic; /* প্লেসহোল্ডারটি একটু ইটালিক স্টাইল */
+}
+
+#whatsapp {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: "Arial", sans-serif;
+    padding: 15px;
+    border: 2px solid #007bff; /* WhatsApp জন্য একটি সুন্দর অ্যাকসেন্ট রঙ */
+    border-radius: 10px; /* গোলাকার বর্ডার */
+    outline: none; /* ফোকাস হলে ব্লু আউটলাইন ঠিক রাখা */
+    transition: all 0.3s ease; /* টানটান অ্যানিমেশন ট্রানজিশন */
+}
+
+#whatsapp:focus {
+    border-color: #4caf50; /* ফোকাস হলে সবুজ বর্ডার */
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.5); /* হালকা সবুজ ছায়া */
+}
+
+#whatsapp::placeholder {
+    font-size: 16px;
+    color: #888; /* প্লেসহোল্ডারের রঙ */
+    font-style: italic; /* প্লেসহোল্ডারটি একটু ইটালিক স্টাইল */
+}
+
+#saveImage {
+  display: none;
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background: #0e8a0a;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+#saveImage:hover {
+  background: #c0392b;
+}
+#whatsappContact, #telegramContact {
+  display: none;
+  margin: 10px auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+#whatsappContact {
+  background: #25D366; /* WhatsApp green */
+}
+#telegramContact {
+  background: #0088cc; /* Telegram blue */
+}
+#whatsappContact:hover {
+  background: #1ebe52;
+}
+#telegramContact:hover {
+  background: #006699;
+}
+#closePopup {
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: clamp(14px, 3vw, 16px);
+  font-weight: bold;
+  color: white;
+  background: #e74c3c;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: block;
+}
+#closePopup:hover {
+  background: #c0392b;
+}
+#contactStatus {
+  color: #27ae60;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* General styles for larger screens */
+body {
+  font-family: Arial, sans-serif;
+}
+
+#winnerBox {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.contact-form input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+/* Mobile-first styles */
+@media screen and (max-width: 768px) {
+  #winnerBox {
+      width: 90%;
+      padding: 10px;
+  }
+  .contact-form input {
+      width: 100%;
+      padding: 8px;
+  }
+  button {
+      width: 100%;
+      padding: 12px 20px;
+  }
+}
+
+/* Styles for larger devices (like tablets and desktops) */
+@media screen and (min-width: 769px) {
+  #winnerBox {
+      width: 60%;
+  }
+  .contact-form input {
+      width: 90%;
+  }
+  button {
+      width: auto;
+  }
+}
