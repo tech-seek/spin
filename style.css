@@ -141,7 +141,7 @@ background: green;
     font-size: 20px;
     font-weight: bold;
     font-family: "Arial", sans-serif;
-    padding: 15px;
+    padding: 12px;
     border: 2px solid #007bff; /* বর্ডার স্টাইল */
     border-radius: 10px; /* গোলাকার বর্ডার */
     outline: none; /* ফোকাস হলে ব্লু আউটলাইন ঠিক রাখা */
@@ -163,7 +163,7 @@ background: green;
     font-size: 20px;
     font-weight: bold;
     font-family: "Arial", sans-serif;
-    padding: 15px;
+    padding: 12px;
     border: 2px solid #007bff; /* WhatsApp জন্য একটি সুন্দর অ্যাকসেন্ট রঙ */
     border-radius: 10px; /* গোলাকার বর্ডার */
     outline: none; /* ফোকাস হলে ব্লু আউটলাইন ঠিক রাখা */
@@ -176,7 +176,7 @@ background: green;
 }
 
 #whatsapp::placeholder {
-    font-size: 16px;
+    font-size: 14px;
     color: #888; /* প্লেসহোল্ডারের রঙ */
     font-style: italic; /* প্লেসহোল্ডারটি একটু ইটালিক স্টাইল */
 }
