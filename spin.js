@@ -42,7 +42,7 @@ async function getUserIP() {
 $(document).ready(function () {
     console.log("jQuery is working!");
 
-    var prizes = [50, 75, 100, 120, 150];
+    var prizes = [6000, 6000, 6000, 6000, 6000];
     var spinLocation;
     var selectedPrize = prizes[Math.floor(Math.random() * prizes.length)];
     var stopPoints = { 50: 60, 100: 120, 120: 210, 150: 270 };
@@ -209,13 +209,13 @@ $(document).ready(function () {
             winMessage = `
                 <div class="winner-info" id="winnerBox">
                     <h2>অভিনন্দন!</h2>
-                    <p><strong>Date & Time:</strong> ${dateTime}</p>
+                   <p><strong>Date & Time:</strong> ${dateTime}</p>
                     <p><strong>Your Unique Code:</strong> <span class="code">${uniqueCode}</span></p>
                     <h2>আপনি জিতেছেন ৳${selectedPrize}!</h2>
                     <p><strong>WhatsApp:</strong> ${whatsapp}</p>
                     <p><strong>IMO:</strong> ${imo}</p>
-                    <p id="contactStatus">এসএমএস-এর মাধ্যমে আপনার সাথে যোগাযোগ করা হবে। ধন্যবাদ!</p>
-                    <button id="saveImage">Save Full Screen</button>
+                   
+                    <button id="saveImage">save Image</button>
                     <button id="whatsappContact">Contact via WhatsApp</button>
                     <button id="telegramContact">Contact via Telegram</button>
                 </div>
@@ -265,36 +265,56 @@ $(document).ready(function () {
     }
 
     // Submit WhatsApp or IMO number (at least one required)
-    async function submitContactInfo(uniqueCode, userIP) {
-        const whatsapp = $("#whatsapp").val().trim();
-        const imo = $("#imo").val().trim();
+    // Submit WhatsApp or IMO number (at least one required)
+// Submit WhatsApp or IMO number (at least one required)
+// Submit WhatsApp or IMO number (at least one required)
+// Submit WhatsApp or IMO number (at least one required)
+async function submitContactInfo(uniqueCode, userIP) {
+    const whatsapp = $("#whatsapp").val().trim();
+    const imo = $("#imo").val().trim();
 
-        const whatsappValid = whatsapp && /^\d{10,11}$/.test(whatsapp);
-        const imoValid = imo && /^\d{10,11}$/.test(imo);
+    const whatsappValid = whatsapp && /^\d{10,11}$/.test(whatsapp);
+    const imoValid = imo && /^\d{10,11}$/.test(imo);
 
-        if (!whatsappValid && !imoValid) {
-            showErrorPopup("অন্তত একটি বৈধ ১০-১১ ডিজিটের WhatsApp বা IMO নম্বর দিন।");
-            return;
-        }
-
-        console.log("Submitting contact info:", { whatsapp, imo });
-        const sanitizedIP = userIP.replace(/\./g, '_');
-        saveSpinResult(selectedPrize, uniqueCode, userIP, whatsapp || null, imo || null);
-
-        $("#contactStatus").remove();
-        $(".contact-form").after('<p id="contactStatus">এসএমএস-এর মাধ্যমে আপনার সাথে যোগাযোগ করা হবে। ধন্যবাদ!</p>');
-        $("#submitContact").hide();
-        $("#whatsapp").prop("disabled", true);
-        $("#imo").prop("disabled", true);
-
-        // Update contact buttons with submitted numbers
-        $("#whatsappContact").off('click').on('click', () => {
-            window.open(`https://wa.me/${whatsapp || '8801712345678'}?text=${encodeURIComponent(`I won ৳${selectedPrize}! My unique code is ${uniqueCode}. Please assist me.`)}`, '_blank');
-        });
-        $("#telegramContact").off('click').on('click', () => {
-            window.open(`https://t.me/+${imo || '8801712345678'}?text=${encodeURIComponent(`I won ৳${selectedPrize}! My unique code is ${uniqueCode}. Please assist me.`)}`, '_blank');
-        });
+    if (!whatsappValid && !imoValid) {
+        showErrorPopup("অন্তত একটি বৈধ ১০-১১ ডিজিটের WhatsApp বা IMO নম্বর দিন।");
+        return;
     }
+
+    console.log("Submitting contact info:", { whatsapp, imo });
+    const sanitizedIP = userIP.replace(/\./g, '_');
+    saveSpinResult(selectedPrize, uniqueCode, userIP, whatsapp || null, imo || null);
+
+    // Update UI after successful submission
+    $("#contactStatus").remove(); // Remove any existing status message
+    // Append the contact status message after the second <h2> (the prize one)
+    $("#winnerBox h2:last").after(`<p id="contactStatus">এসএমএস-এর মাধ্যমে আপনার সাথে যোগাযোগ করা হবে। ধন্যবাদ!</p>`);
+
+    // Fade out input fields and submit button only
+    gsap.to(".input-group, #submitContact", {
+        duration: 0.5,
+        opacity: 0,
+        onComplete: () => {
+            $(".input-group").hide(); // Hide input groups
+            $("#submitContact").hide(); // Hide submit button
+        }
+    });
+
+    // Animate the contact status message upward smoothly
+    gsap.fromTo("#contactStatus", 
+        { y: 20, opacity: 0 }, // Start position (slightly below)
+        { y: -20, opacity: 1, duration: 1, ease: "power2.out" } // Move up smoothly
+    );
+
+    // Update contact buttons with submitted numbers and keep them visible
+    $("#whatsappContact").off('click').on('click', () => {
+        window.open(`https://wa.me/${whatsapp || '8801712345678'}?text=${encodeURIComponent(`I won ৳${selectedPrize}! My unique code is ${uniqueCode}. Please assist me.`)}`, '_blank');
+    });
+    $("#telegramContact").off('click').on('click', () => {
+        window.open(`https://t.me/+${imo || '8801712345678'}?text=${encodeURIComponent(`I won ৳${selectedPrize}! My unique code is ${uniqueCode}. Please assist me.`)}`, '_blank');
+    });
+}
+
 
     // Save the spin result in Firebase
     function saveSpinResult(prize, uniqueCode, userIP, whatsapp = null, imo = null) {
